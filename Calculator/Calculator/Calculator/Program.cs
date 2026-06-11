@@ -1,4 +1,4 @@
-﻿namespace Calculadora
+﻿namespace Calculator
 {
     internal class Program
     {
