@@ -36,7 +36,7 @@ namespace Calculator
                 result = num2 == 0 ? float.NaN : num1 / num2; //Use Not a Number
             }
             if (float.IsNaN(result))
-                
+
             {
                 Console.WriteLine("Cannot divide by 0");
             }
