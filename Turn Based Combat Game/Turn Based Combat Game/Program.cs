@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Unit player = new Unit(100,20,12,"Pepe");
         }
     }
 }
