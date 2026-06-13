@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace Tic_Tac_Toe
@@ -119,10 +120,50 @@ namespace Tic_Tac_Toe
                 //Si pasamos estas 4 condiciones sin devolver true entonces el movimiento no fue ganador
                 wininfo = null;
                 return false;
-            
+
             }
 
 
+
+
+
+
         }
+        //method which check if a move ended the game
+        private bool DidMoveEndGame(int x, int y, out GameResultcs gameResultcs)
+        {
+            if (DidMoveWin(x, y, out WinInfo wininfo))
+            {
+                gameResultcs = new GameResultcs { Winner = CurrentPlayer, WinInfo = wininfo };
+                return true;
+
+            }
+            //Si el moviemiento no fue ganador pero la cuadricula esta llena el movimiento fue empate
+            if(IsGrifFull())
+            {
+                gameResultcs = new GameResultcs
+                {
+                    Winner = Player.None
+                    
+
+                };
+                return true;
+
+            }
+            //Si pasamo estas dos condiciones el juego todavia no termino 
+            gameResultcs = null;
+            return false;
+        
+        
+        
+        } 
+
+        public void MakeMove(int x , int y)
+        {
+
+
+        }
+
+
     }
 }
