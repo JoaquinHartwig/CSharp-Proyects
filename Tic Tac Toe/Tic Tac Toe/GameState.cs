@@ -6,14 +6,14 @@ namespace Tic_Tac_Toe
 {
     internal class GameState // Aqui almacenaremos la cuadricula de juego de 3x3 como una matriz de juego bidimensional
     {
-        public Player[,] GameGrid {get; private set; } // Player[,] tablero;
+        public Player[,] GameGrid { get; private set; } // Player[,] tablero;
         public Player CurrentPlayer { get; private set; }
 
         public int TurnsPassed { get; private set; } // Cuantos turnos han pasado 
 
         public bool GameOver { get; private set; } // Si el juego a terminado o no 
 
-        public event Action<int , int > MoveMade;//Un evento (event) en C# es un mecanismo para que un objeto pueda decir: "¡Acaba de pasar algo! Si alguien está interesado, que reaccione."
+        public event Action<int, int> MoveMade;//Un evento (event) en C# es un mecanismo para que un objeto pueda decir: "¡Acaba de pasar algo! Si alguien está interesado, que reaccione."
 
         /*Jugador muere
                 ↓
@@ -38,11 +38,37 @@ namespace Tic_Tac_Toe
 
 
         }
-        private bool CanMakeMove(int x,int y)
+        private bool CanMakeMove(int x, int y)
         {
             return !GameOver && GameGrid[x, y] == Player.None; //SI el juego todavia no termino y si la casilla esta vacia retorna verdadero es decir q el jugador puede marcar esa casilla
 
             //juego no ha terminado y casilla esta vacia
+        }
+        private bool IsGrifFull()//La cuadricula debe estar llena si solo si han pasado nueve turnos
+        {
+            return TurnsPassed == 9;// Si pasan 9 turnos devuelve true
+        }
+
+        private void SwitchPlayer()
+        {
+            CurrentPlayer = CurrentPlayer == Player.X ? Player.O : Player.X;
+        }
+
+        //Tambien debemos saber cuando un jugador gano la partida entonces...
+
+        private bool AreSquaredmarked((int, int)[] squares, Player player)
+        {
+            foreach ((int x, int y) in squares)
+            {
+                if (GameGrid[x, y] != player)
+                {
+                    return false;
+                }
+
+            }
+            return true;
+
+
         }
     }
 }
