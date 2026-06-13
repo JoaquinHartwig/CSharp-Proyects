@@ -4,7 +4,9 @@ using System.Text;
 
 namespace Tic_Tac_Toe
 {
-    internal class GameResultcs
+    public class GameResultcs
     {
+        public Player Winner { get; set; }
+        public WinInfo winInfo { get; set; }
     }
 }

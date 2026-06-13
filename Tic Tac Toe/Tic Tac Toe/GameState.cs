@@ -77,7 +77,7 @@ namespace Tic_Tac_Toe
 
         }
 
-        private bool DidMoveWin(int x, int y, out WinInfo wininfo)
+        private bool DidMoveWin(int x, int y, out WinInfo wininfo)//después de poner una ficha en (x,y), ¿ganó el jugador?"
         { //Metodo para verificar si un movimiento gano la partida 
 
             {
@@ -85,7 +85,13 @@ namespace Tic_Tac_Toe
                 (int, int)[] colomn = new[] { (0, y), (1, y), (2, y) };
                 (int, int)[] mainDiag = new[] { (0, 0), (1, 1), (2, 2) };
                 (int, int)[] antiDiag = new[] { (0, 2), (1, 1), (2, 0) };//Si cada una de las casillas estan marcadas el jugador actual a ganado
-                //Por lo tanto usaremos este metodo para saber si el jugador ha ganado la partida  
+                                                                         //Por lo tanto usaremos este metodo para saber si el jugador ha ganado la partida  
+
+
+
+
+                //Lo primero que hace Construye las líneas que podrían haber ganado.
+
 
                 if (AreSquaredmarked(row, CurrentPlayer))
                 {

@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Tic_Tac_Toe
 {
-    internal class Player
+    public enum Player //Un enum (enumeración) es un tipo especial que sirve para representar un conjunto fijo de valores posibles.
     {
+        None,X,O
     }
 }

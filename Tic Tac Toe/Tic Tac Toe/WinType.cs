@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Tic_Tac_Toe
 {
-    internal class WinType
+    public enum  WinType
     {
+        Row,Column,MainDiagonal,AntiDiagonal
     }
 }
