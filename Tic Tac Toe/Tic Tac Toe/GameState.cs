@@ -175,13 +175,13 @@ namespace Tic_Tac_Toe
         
         }
 
-        public void MakeMove(int x, int y)
+        public void MakeMove(int x, int y) //Corazon del juego
         {
             if (!CanMakeMove(x, y))//Si no es posible el movimiento simplemente retorna
             {
-                return;
+                return;//¿Se puede jugar en esta casilla?   
             }
-            GameGrid[x, y] = CurrentPlayer;
+            GameGrid[x, y] = CurrentPlayer;//Marca la casilla con X o O y suma uno al turno 
             TurnsPassed++;
 
             //Luego chekeamos si el movimiento termino la partida
