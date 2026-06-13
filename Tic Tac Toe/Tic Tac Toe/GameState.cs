@@ -60,13 +60,61 @@ namespace Tic_Tac_Toe
         {
             foreach ((int x, int y) in squares)
             {
-                if (GameGrid[x, y] != player)
+                if (GameGrid[x, y] != player) //Verifica si un jugador hizo el tres en raya... Perfección 
                 {
                     return false;
                 }
 
             }
-            return true;
+            return true; //"¿Todas estas posiciones están marcadas por este jugador?"
+
+            /*Recibe:
+          - Un arreglo de coordenadas (Arreglo de tuplas)
+              -Un jugador (X u O)
+
+                     Devuelve:
+                 - true o false*/
+
+        }
+
+        private bool DidMoveWin(int x, int y, out WinInfo wininfo)
+        { //Metodo para verificar si un movimiento gano la partida 
+
+            {
+                (int, int)[] row = new[] { (x, 0), (x, 1), (x, 2) };
+                (int, int)[] colomn = new[] { (0, y), (1, y), (2, y) };
+                (int, int)[] mainDiag = new[] { (0, 0), (1, 1), (2, 2) };
+                (int, int)[] antiDiag = new[] { (0, 2), (1, 1), (2, 0) };//Si cada una de las casillas estan marcadas el jugador actual a ganado
+                //Por lo tanto usaremos este metodo para saber si el jugador ha ganado la partida  
+
+                if (AreSquaredmarked(row, CurrentPlayer))
+                {
+                    wininfo = new WinInfo { type = WinType.Row, number = x };
+                    return true;
+
+                }
+                if (AreSquaredmarked(colomn, CurrentPlayer))
+                {
+                    wininfo = new WinInfo { type = WinType.Row, number = y };
+                    return true;
+                }
+                if (AreSquaredmarked(mainDiag, CurrentPlayer))
+                {
+                    wininfo = new WinInfo { type = WinType.MainDiagonal };
+                    return true;
+
+                }
+                if (AreSquaredmarked(antiDiag, CurrentPlayer))
+
+                {
+                    wininfo = new WinInfo { type = WinType.AntiDiagonal };
+                    return true;
+                }
+                //Si pasamos estas 4 condiciones sin devolver true entonces el movimiento no fue ganador
+                wininfo = null;
+                return false;
+            
+            }
 
 
         }
