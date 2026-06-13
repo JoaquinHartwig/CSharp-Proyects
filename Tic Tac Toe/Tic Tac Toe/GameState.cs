@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -80,13 +81,25 @@ namespace Tic_Tac_Toe
 
         private bool DidMoveWin(int x, int y, out WinInfo wininfo)//después de poner una ficha en (x,y), ¿ganó el jugador?"
         { //Metodo para verificar si un movimiento gano la partida 
+          //Gracias al out devuelve dos valores
+          //1. bool      → ¿ganó?
+          // 2.WinInfo   → ¿cómo ganó?
+          //es para saber si ¿Ganó por fila?
+          //¿Ganó por columna ?
+          //¿Ganó por diagonal ? 
+          //Qué hace out?
 
+            //Le dice al método:
+
+           //"Además del valor de retorno normal, quiero que rellenes esta variable."
             {
                 (int, int)[] row = new[] { (x, 0), (x, 1), (x, 2) };
                 (int, int)[] colomn = new[] { (0, y), (1, y), (2, y) };
                 (int, int)[] mainDiag = new[] { (0, 0), (1, 1), (2, 2) };
-                (int, int)[] antiDiag = new[] { (0, 2), (1, 1), (2, 0) };//Si cada una de las casillas estan marcadas el jugador actual a ganado
-                                                                         //Por lo tanto usaremos este metodo para saber si el jugador ha ganado la partida  
+                (int, int)[] antiDiag = new[] { (0, 2), (1, 1), (2, 0) };
+                //Si cada una de las casillas estan marcadas el jugador actual a ganado
+                                                                         
+                //Por lo tanto usaremos este metodo para saber si el jugador ha ganado la partida  
 
 
 
@@ -96,7 +109,7 @@ namespace Tic_Tac_Toe
 
                 if (AreSquaredmarked(row, CurrentPlayer))
                 {
-                    wininfo = new WinInfo { type = WinType.Row, number = x };
+                    wininfo = new WinInfo { type = WinType.Row, number = x };//devulve q gano por fila y en cual (número)
                     return true;
 
                 }
@@ -130,7 +143,11 @@ namespace Tic_Tac_Toe
 
         }
         //method which check if a move ended the game
-        private bool DidMoveEndGame(int x, int y, out GameResultcs gameResultcs)
+        private bool DidMoveEndGame(int x, int y, out GameResultcs gameResultcs) //DidMoveEndGame()
+
+               //return → ¿terminó el juego?
+
+               //out → información completa del resultado
         {
             if (DidMoveWin(x, y, out WinInfo wininfo))
             {
@@ -156,11 +173,38 @@ namespace Tic_Tac_Toe
         
         
         
-        } 
+        }
 
-        public void MakeMove(int x , int y)
+        public void MakeMove(int x, int y)
         {
+            if (!CanMakeMove(x, y))//Si no es posible el movimiento simplemente retorna
+            {
+                return;
+            }
+            GameGrid[x, y] = CurrentPlayer;
+            TurnsPassed++;
 
+            //Luego chekeamos si el movimiento termino la partida
+
+
+            if (DidMoveEndGame(x, y, out GameResultcs gameResultcs))
+            {
+                GameOver = true;
+                MoveMade?.Invoke(x, y);//if(MoveMade!=null)
+                                       //{
+                                       // MoveMade(x, y);
+                                       //}
+                GameEnded?.Invoke(gameResultcs);
+            }
+            else
+            {
+                SwitchPlayer();
+                MoveMade?.Invoke(x, y);
+            }
+        }
+
+        public void Reset()
+        {
 
         }
 
