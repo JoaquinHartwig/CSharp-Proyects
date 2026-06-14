@@ -187,7 +187,7 @@ namespace Tic_Tac_Toe
             //Luego chekeamos si el movimiento termino la partida
 
 
-            if (DidMoveEndGame(x, y, out GameResultcs gameResultcs))
+            if (DidMoveEndGame(x, y, out GameResultcs gameResultcs)) //Verificar si termino la partida 
             {
                 GameOver = true;
                 MoveMade?.Invoke(x, y);//if(MoveMade!=null)
@@ -202,10 +202,35 @@ namespace Tic_Tac_Toe
                 MoveMade?.Invoke(x, y);
             }
         }
+        /*Jugador hace clic
+        ↓
+MakeMove()
+        ↓
+¿Movimiento válido?
+        ↓
+    Sí
+        ↓
+Colocar ficha
+        ↓
+Aumentar turnos
+        ↓
+¿Terminó la partida?
+      ↙       ↘
+    Sí         No
+    ↓           ↓
+GameOver     Cambiar jugador
+    ↓           ↓
+GameEnded   MoveMade
+    ↓
+MoveMade*/
 
         public void Reset()
         {
-
+            GameGrid = new Player[3, 3];
+            CurrentPlayer = Player.X;
+            TurnsPassed=0;
+            GameOver = false;
+            GameRestarted?.Invoke();
         }
 
 
