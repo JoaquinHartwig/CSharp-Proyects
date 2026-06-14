@@ -57,9 +57,16 @@ namespace Tic_Tac_Toe
 
                 Console.Write("Row (0-2): ");
                 int row = int.Parse(Console.ReadLine());
+                
 
                 Console.Write("Column (0-2): ");
                 int col = int.Parse(Console.ReadLine());
+
+                if (row < 0 || row > 2 || col < 0 || col > 2)
+                {
+                    Console.WriteLine("Invalid position!");
+                    return;
+                }
 
                 game.MakeMove(row, col);
             }
