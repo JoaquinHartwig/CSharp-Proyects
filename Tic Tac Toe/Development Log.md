@@ -84,3 +84,28 @@ This project is significantly more advanced than the previous projects I have co
 Even though I do not fully understand every line yet, I can already see how much I am improving by reading, analyzing, and questioning the code instead of simply reproducing it.
 
 My goal is not only to finish the project, but also to understand the design decisions behind it and use that knowledge in my future projects.
+
+# Development Log - 13/06/2026
+
+Today I continued working on my Tic-Tac-Toe project in C#.
+
+One interesting challenge was that the original tutorial I was following was built using WPF, while I had implemented the entire project as a console application. At first I thought I had made a mistake, but after reviewing the code I realized that the most valuable part of the project was the game logic itself.
+
+During this session I worked on:
+
+* Understanding and implementing a 3x3 game board using a two-dimensional array.
+* Practicing object-oriented programming concepts.
+* Using enums to represent players and winning conditions.
+* Implementing turn management between players.
+* Detecting valid and invalid moves.
+* Detecting victories through rows, columns, and diagonals.
+* Detecting draw situations.
+* Learning how events work in C# and using them to notify game actions.
+* Displaying the game board in the console.
+* Creating a fully playable two-player console version of Tic-Tac-Toe.
+
+A large portion of the session was dedicated to understanding the code instead of simply copying it. I spent time analyzing methods, properties, events, enums, multidimensional arrays, and how different classes interact with each other.
+
+Although the project is currently a console application, I plan to revisit it in the future and rebuild it using WPF in order to learn graphical user interface development in C#.
+
+Today's session helped reinforce several important C# concepts while also showing me how different parts of a larger project fit together.

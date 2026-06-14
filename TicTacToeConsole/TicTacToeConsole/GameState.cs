@@ -5,16 +5,16 @@ using System.Runtime.InteropServices;
 using System.Text;
 
 namespace Tic_Tac_Toe
-    /*Estado del juego
-       Reglas
-       Victoria
-       Empate
-        Turnos*/
+/*Estado del juego
+   Reglas
+   Victoria
+   Empate
+    Turnos*/
 {
     internal class GameState // Aqui almacenaremos la cuadricula de juego de 3x3 como una matriz de juego bidimensional
     {
         //** Tablero 3x3
-        
+
         public Player[,] GameGrid { get; private set; } // Player[,] tablero;
         //Turnos
         public Player CurrentPlayer { get; private set; }
@@ -31,9 +31,9 @@ namespace Tic_Tac_Toe
                ↓
     Se ejecutan las acciones necesarias*/
 
-//void Algo(int x, int y) =  Action<int , int >  Action es un delegado ya creado por .NET.
-//{
-//}
+        //void Algo(int x, int y) =  Action<int , int >  Action es un delegado ya creado por .NET.
+        //{
+        //}
 
         public event Action<GameResultcs> GameEnded;
         public event Action GameRestarted;
@@ -99,14 +99,14 @@ namespace Tic_Tac_Toe
 
             //Le dice al método:
 
-           //"Además del valor de retorno normal, quiero que rellenes esta variable."
+            //"Además del valor de retorno normal, quiero que rellenes esta variable."
             {
                 (int, int)[] row = new[] { (x, 0), (x, 1), (x, 2) };
                 (int, int)[] colomn = new[] { (0, y), (1, y), (2, y) };
                 (int, int)[] mainDiag = new[] { (0, 0), (1, 1), (2, 2) };
                 (int, int)[] antiDiag = new[] { (0, 2), (1, 1), (2, 0) };
                 //Si cada una de las casillas estan marcadas el jugador actual a ganado
-                                                                         
+
                 //Por lo tanto usaremos este metodo para saber si el jugador ha ganado la partida  
 
 
@@ -153,9 +153,9 @@ namespace Tic_Tac_Toe
         //method which check if a move ended the game
         private bool DidMoveEndGame(int x, int y, out GameResultcs gameResultcs) //DidMoveEndGame()
 
-               //return → ¿terminó el juego?
+        //return → ¿terminó el juego?
 
-               //out → información completa del resultado
+        //out → información completa del resultado
         {
             if (DidMoveWin(x, y, out WinInfo wininfo))
             {
@@ -164,12 +164,12 @@ namespace Tic_Tac_Toe
 
             }
             //Si el moviemiento no fue ganador pero la cuadricula esta llena el movimiento fue empate
-            if(IsGrifFull())
+            if (IsGrifFull())
             {
                 gameResultcs = new GameResultcs
                 {
                     Winner = Player.None
-                    
+
 
                 };
                 return true;
@@ -236,12 +236,12 @@ MoveMade*/
         {
             GameGrid = new Player[3, 3];
             CurrentPlayer = Player.X;
-            TurnsPassed=0;
+            TurnsPassed = 0;
             GameOver = false;
             GameRestarted?.Invoke();
         }
 
-        
+
 
     }
 }
