@@ -69,15 +69,15 @@
                     continue;//sigue el juego no rompe el While 
 
                 }
-                  SnakePosHistory.Add(new Coord(snakePos.X, snakePos.Y));
-                if (SnakePosHistory.Count > tailLeng)
+                  SnakePosHistory.Add(new Coord(snakePos.X, snakePos.Y)); 
+                if (SnakePosHistory.Count > tailLeng)//esto controla q la cola no sea infinita 
                 {
                     SnakePosHistory.RemoveAt(0);
                 }
-                 DateTime time = DateTime.Now;
-                while ((DateTime.Now - time).Milliseconds < frameDelayMilli)
+                 DateTime time = DateTime.Now;//Guarda el instante actual 
+                while ((DateTime.Now - time).Milliseconds < frameDelayMilli) // Esperar 100 ms
                 {
-                    if(Console.KeyAvailable)
+                    if(Console.KeyAvailable) //El jugador apreto alguna tecla?
                     {
                         ConsoleKey key = Console.ReadKey().Key;
                         switch (key)
