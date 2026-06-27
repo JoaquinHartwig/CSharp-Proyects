@@ -37,7 +37,7 @@ The game currently runs in the console and supports two human players taking tur
 
 ## Current Status
 
-🚧 Project is still under development.
+## Project is still under development.
 
 The console version is functional, but I plan to continue improving it as my C# skills grow.
 
