@@ -1,4 +1,4 @@
-# 🐍 Retro Snake Game
+#  Retro Snake Game
 
 A classic Snake game built in C# using the console.
 
@@ -6,7 +6,7 @@ This project was created as part of my C# learning journey to practice Object-Or
 
 ---
 
-## 🎮 Features
+##  Features
 
 * Real-time snake movement
 * Random apple spawning
@@ -19,7 +19,7 @@ This project was created as part of my C# learning journey to practice Object-Or
 
 ---
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 * C#
 * .NET
@@ -27,7 +27,7 @@ This project was created as part of my C# learning journey to practice Object-Or
 
 ---
 
-## 📚 Concepts Practiced
+##  Concepts Practiced
 
 ### Object-Oriented Programming
 
@@ -61,7 +61,7 @@ This project was created as part of my C# learning journey to practice Object-Or
 
 ---
 
-## 🎯 Controls
+##  Controls
 
 | Key | Action     |
 | --- | ---------- |
@@ -72,7 +72,7 @@ This project was created as part of my C# learning journey to practice Object-Or
 
 ---
 
-## 🚀 Future Improvements
+## 🚀Future Improvements
 
 * Better graphics using WPF
 * Main menu
@@ -86,7 +86,7 @@ This project was created as part of my C# learning journey to practice Object-Or
 
 ---
 
-## 📖 What I Learned
+##  What I Learned
 
 Through this project I learned how a simple game is structured internally:
 
